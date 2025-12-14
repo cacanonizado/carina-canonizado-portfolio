@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Canonizado's Website(Projects)</title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <nav>
+      <a href="website.html">Home</a> <span>|</span>
+      <a href="projects.html">Project</a> <span>|</span>
+      <a href="contact.html">Contact</a>
+    </nav>
+  <h2>
+    <nav class="submenu">
+      <a href="projects.html">Linear Algebra</a> <span>|</span>
+      <a href="Fundamentals_of_Programming.html">Fundamentals of Programming</a>
+    </nav>
+  </h2>
+  <main>
+    <section>
+      <h3>
+       CODE PORTFOLIO - FUNDAMENTALS OF PROGRAMMING
+      </h3>
+    </section>
+    <section>
+      <h4>
+        I. Mini-Machine: Humidity and Temperature Monitoring (Final Project)
+      </h4>
+      <h6>
+        A. Problem definition and real-life relevance.
+      </h6>
+      <p>Monitoring Humidity and Temperature is important in real life, because high temperatures 
+      combined with low humidity can damage equipment, plants, or stored materials. For example in  
+      greenhouses, server rooms, laboratories, or storage facilities.</p>
+      <p>This Mini-Machine simulates a real monitoring system. It checks humidity and temperature, alerts 
+      when conditions are dangerous, and stops to prevent damage. It also helps show how loops, conditions, 
+      and base cases work in python.</p>
+    </section>
+    <section>
+      <h6>
+        B. Mini-Machine Code
+      </h6>
+      <p class="code">import random</p>
+      <p class="code">import time</p>
+      <p class="code"># Thresholds</p>
+      <p class="code">MAX_TEMPERATURE = 35.0 # Celsius</p>
+      <p class="code">MIN_HUMIDITY = 30.0 # Percentage</p>
+      <p class="code">system_active = True # This flag keeps the loop running until the base case occurs.</p>
+      <p class="code"># Function to check Alert conditions</p>
+      <p class="code">def check_conditions(humidity, temperature):</p>
+      <p class="code">    return humidity &lt; MIN_HUMIDITY and temperature &gt; MAX_TEMPERATURE # Returns True if Humidity is too LOW and Temperature is too HIGH</p>
+      <p class="code">print("System started. Monitoring humidity and temperature...\\n")</p>
+      <p class="code">while system_active:</p>
+      <p class="code">    # Simulate sensor readings</p>
+      <p class="code">    humidity = random.uniform(20, 50) # Humidity between 20% and 50%</p>
+      <p class="code">    temperature = random.uniform(25, 40) # Temperature between 25C and 40C</p>
+      <p class="code">    # Print current readings</p>
+      <p class="code">    print(f"Humidity: {humidity:.1f}%  Temperature: {temperature:.1f}°C")</p>
+      <p class="code">    # Check for alert</p>
+      <p class="code">    if check_conditions(humidity, temperature):</p>
+      <p class="code">        # Base case reached: Stop the machine when critical conditions are met</p>
+      <p class="code">        print("ALERT! Humidity too low and temperature too high!")</p>
+      <p class="code">        print("System stopped due to alert.")</p>
+      <p class="code">        system_active = False # Stops the Loop</p>
+      <p class="code">        break  # Stop reading</p>
+      <p class="code">    # Wait a bit before next reading</p>
+      <p class="code">    time.sleep(2)</p>
+    </section>
+    <section>
+      <h6>
+        C. Explanation of the Code
+      </h6>
+      <p>The code uses a while loop that continues running as long as the system_active flag is True. 
+      Inside the loop, it simulates reading humidity and temperature values using random numbers. 
+      It then checks if the humidity is below the minimum threshold and the temperature is above the 
+      maximum threshold using the check_conditions function.</p>
+      <p>If both conditions are met, it triggers an alert, prints a message, and sets system_active to 
+      False, which stops the loop (this is the base case). The loop also includes a sleep function to 
+      pause for 2 seconds between readings, simulating real-time monitoring.</p>
+    </section>
+    <section>
+      <h6>
+        D. Reflection on challenges and how they were resolved
+      </h6>
+      <P>
+        The first problem was when I first ran the code, the humidity and temperature were just % and C without 
+        actual  numbers. The solution was to simulate realistic values using a random number generator for both 
+        humidity and temperature. By doing this, the program can display meaningful readings even without 
+        hardware. The lesson I learned is that simulating data is useful for testing and ensures that the program can 
+        be demonstrated correctly before connecting real sensors.
+      </P>
+      <p>
+        The second problem was when I tried stopping the program by typing “STOP”, but it did not work. This 
+        happened because the program was continuously running and never waited for user input during the 
+        monitoring loop. The solution was to set an alert condition that automatically stops the system when the 
+        humidity is too low and the temperature is too high. The lesson learned is that monitoring systems should 
+        have automatic stopping conditions rather than relying on user input, which makes the system safer and 
+        more like a real-life automatic control.
+      </p>
+      <p>
+        When the alert was sent, the program did not stop and kept reading values continuously. This is because 
+        there is no base case to terminate the loop . The solution was to add a base case in the code that sets the 
+        system flag to False and breaks the loop once the alert condition is reached. The lesson is that in 
+        continuous loops, defining a clear base is essential to prevent infinite execution and ensure that the system 
+        stops safely when necessary.
+      </p>
+    </section>
+    <section>
+      <h4>
+        II.Python Programming Problem Set
+      </h4>
+      <h4>
+        A. Problems:
+      </h4>
+    </section>
+      <section>
+      <h6>
+        i. Problem 1: Sum of Even Numbers
+      </h6>
+      <p>1. How did the AI’s solution differ from yours (loop type, condition, or syntax)?</p>
+      <p>- I used “if c % 2 == 0” to loop through all numbers from 1 to n. While GitHub used “range(2, n+1, 2)” to loop only through even numbers.</p>
+
+      <p>2. Did the AI suggest a shorter or alternative approach (e.g., using range steps or list comprehension)?</p>
+      <p>- Yes, to avoid unnecessary checks GitHub suggested a shorter version using the “range” function.</p>
+
+      <p>3. Which version is easier to understand and why? </p>
+      <p>- The version I made is easier for beginners, because it clearly checks each number. The AI’s version requires understanding the range step parameter but it’s more concise and efficient.</p>
+      <h6>
+        ii. Problem 2: Factorial of Numbers
+      </h6>
+      <p>1. Did the AI use a for loop or recursion instead of a while loop? </p>
+      <p>- GitHub uses a while loop, just like mine. But I think mine is clearer, and easy to understand.</p>
+
+      <p>2. How did the AI explain the logic behind its solution? </p>
+      <p>- It explained that factorial multiplies all numbers from 1 up to n, and which is improved with clarity and accuracy by adding error handling for negative numbers.</p>
+
+      <p>3. What insights did you gain from comparing both implementations? </p>
+      <p>- I learned the importance of input validation, organization, and explaining code logic clearly and readably.</p>
+      <h6>
+        iii. Display Prime Number in range
+      </h6>
+      <p>1. Did the AI use a more optimized algorithm (e.g., checking up to √n)? </p>
+      <p>- Yes, it uses square root optimization, checking divisibility only up to √n instead of the full range. Unlike my version, it checks every number, it uses a mathematical shortcut to improve performance.</p>
+
+      <p>2. How did the AI’s explanation improve your understanding of primality testing? </p>
+      <p>- The GitHub explained why checking only the square root works is enough, and good for larger ranges, because if a factor is larger than its square root, the smaller factor would have been found.</p>
+
+      <p>3. What would you modify in your own code after reviewing the AI’s approach? </p>
+      <p>- I think my work is good because it is close to GitHub, but if I were to explore other AI’s I think I can improve it even more.</p>
+      <h6>
+        iv. Right-Angle Triangle Pattern
+      </h6>
+        <p>1. How did the AI handle newlines or spacing differently? </p>
+      <p>- My work and the GitHub version are the same.</p>
+
+      <p>2. Did it suggest formatting methods that improved readability? </p>
+      <p>- It used f-strings and cleaner print statements that looked professional.</p>
+
+      <p>3. Which version of the output do you prefer and why? </p>
+      <p>- I prefer the AI version because it looks organized and it can improve it. Mine is just simple and direct, but it works fine for beginners.</p>
+      <h6>
+        v. Fibonacci Sequence Generator
+      </h6>
+      <p>1. Did the AI use a different logic or structure (e.g., for loop or recursion)? </p>
+      <p>- It's the same logic, but the AI stored the numbers in a list instead of printing them one-by-one.</p>
+
+      <p>2. How did it initialize, and update variables compared to your version? </p>
+      <p>- GitHub kept a sequence inside a list for flexibility, and my version printed the output in the loop, which is simpler but less reusable.</p>
+
+      <p>3. Which solution seems more efficient or elegant, and why? </p>
+      <p>- The GitHub solution is more elegant since it separates logic and output. My version is straightforward for those who want to see the result right away.</p>
+    </section>
+    <section>
+      <h4>
+        B. Problem Set Codes
+      </h4>
+     <h6>
+      1. Sum of Even Numbers
+    </h6>
+      <p>MY CODE:</p>
+      <p class="code">n = int(input("Enter a number: "))</p>
+      <p class="code">total = 0</p>
+      <p class="code"></p>
+      <p class="code">for c in range(1, n+1):</p>
+      <p class="code">    if c % 2 == 0:</p>
+      <p class="code">        total += c</p>
+      <p class="code"></p>
+      <p class="code">print("The sum of even numbers is", total)</p>
+    
+      <p>AI CODE:</p>
+      <p class="code">def sum_of_evens(n):</p>
+      <p class="code">    return sum(i for i in range(2, n+1, 2))</p>
+      <p class="code"></p>
+      <p class="code">if _name_ == '_main_':</p>
+      <p class="code">    n = int(input("Enter a positive integer for sum of evens: "))</p>
+      <p class="code">    print("Sum of even numbers from 1 to", n, "is:", sum_of_evens(n))</p>
+
+      <h6>
+        2. Factorial of a Number
+      </h6>
+      <p>MY CODE:</p>
+      <p class="code">n = int(input("Enter a number: "))</p>
+      <p class="code">fact = 1</p>
+      <p class="code">c = 1</p>
+      <p class="code"></p>
+      <p class="code">while c < = n:</p>
+      <p class="code">    fact *= c</p>
+      <p class="code">    c += 1</p>
+      <p class="code"></p>
+      <p class="code">print("Factorial =", fact)</p>
+      
+      <p>AI CODE:</p>
+      <p class="code">def factorial_while(num):</p>
+      <p class="code">    result = 1</p>
+      <p class="code">    i = 1</p>
+      <p class="code">    while i <= num:</p>
+      <p class="code">        result *= i</p>
+      <p class="code">        i += 1</p>
+      <p class="code">    return result</p>
+      <p class="code"></p>
+      <p class="code">num = int(input("Enter a number to calculate factorial: "))</p>
+      <p class="code">print(f"Factorial of {num} is: {factorial_while(num)}")</p>
+
+      <h6>
+        3. Display Prime Numbers in a Range
+      </h6>
+      <p>MY CODE:</p>
+      <p class="code">for num in range(2, 51):</p>
+      <p class="code">    is_prime = True</p>
+      <p class="code">    for c in range(2, num):</p>
+      <p class="code">        if num % c == 0:</p>
+      <p class="code">            is_prime = False</p>
+      <p class="code">            break</p>
+      <p class="code">    if is_prime:</p>
+      <p class="code">        print(num, end=" ")</p>
+      
+      <p>AI CODE:</p>
+      <p class="code">def is_prime(num):</p>
+      <p class="code">    if num < 2:</p>
+      <p class="code">        return False</p>
+      <p class="code">    for i in range(2, int(num**0.5)+1):</p>
+      <p class="code">        if num % i == 0:</p>
+      <p class="code">            return False</p>
+      <p class="code">    return True</p>
+      <p class="code"></p>
+      <p class="code">def display_primes(start, end):</p>
+      <p class="code">    primes = []</p>
+      <p class="code">    for num in range(start, end+1):</p>
+      <p class="code">        if is_prime(num):</p>
+      <p class="code">            primes.append(num)</p>
+      <p class="code">    return primes</p>
+      <p class="code"></p>
+      <p class="code">start = int(input("Enter start of range for primes: "))</p>
+      <p class="code">end = int(input("Enter end of range for primes: "))</p>
+      <p class="code">print("Prime numbers between", start, "and", end, "are:", display_primes(start, end))</p>
+
+      <h6>
+        4. Right-Angle Triangle Pattern
+      </h6>
+      <p>MY CODE:</p>
+      <p class="code">rows = int(input("Enter number of rows: "))</p>
+      <p class="code"></p>
+      <p class="code">for c in range(1, rows + 1):</p>
+      <p class="code">    print("*" * c)</p>
+      
+      <p>AI CODE:</p>
+      <p class="code">def right_angle_triangle_pattern(rows):</p>
+      <p class="code">    for i in range(1, rows+1):</p>
+      <p class="code">        print('*' * i)</p>
+      <p class="code"></p>
+      <p class="code">rows = int(input("Enter number of rows for triangle pattern: "))</p>
+      <p class="code">right_angle_triangle_pattern(rows)</p>
+
+      <h6>
+        5. Fibonacci Sequence Generator
+      </h6>
+      <p>MY CODE:</p>
+      <p class="code">n = int(input("Enter how many terms: "))</p>
+      <p class="code"></p>
+      <p class="code">a, b = 0, 1</p>
+      <p class="code">count = 0</p>
+      <p class="code"></p>
+      <p class="code">while count < n:</p>
+      <p class="code">    print(a, end= " ")</p>
+      <p class="code">    a, b = b, a + b</p>
+      <p class="code">    count += 1</p>
+      
+      <p>AI CODE:</p>
+      <p class="code">def fibonacci_sequence(n):</p>
+      <p class="code">    fib_sequence = []</p>
+      <p class="code">    a, b = 0, 1</p>
+      <p class="code">    count = 0</p>
+      <p class="code">    while count < n:</p>
+      <p class="code">        fib_sequence.append(a)</p>
+      <p class="code">        a, b = b, a + b</p>
+      <p class="code">        count += 1</p>
+      <p class="code">    return fib_sequence</p>
+      <p class="code"></p>
+      <p class="code">fib_n = int(input("Enter number of Fibonacci numbers to generate: "))</p>
+      <p class="code">print("First", fib_n, "Fibonacci numbers:", fibonacci_sequence(fib_n))</p>
+    </section>
+    <section>
+      <h4>
+      C. Final Reflection: Learning from AI Comparisons
+      </h4>
+      <p>1. How did using Generative AI help you understand Python loops better?</p>
+      <p>- Using Generative AI helps me understand how the same problem can be solved using different types of loops and logic. By comparing my version with the AI version solutions, it allows me to understand the practical advantages of each approach and can choose the one that works best, and understand loops more clearly and taught me to make the code easier to read and faster to run.</p>
+
+      <p>2. What major differences did you notice between your solutions and AI-generated ones?</p>
+      <p>- I think I did well, the biggest difference only is that the AI code is organized and looks like a professional output, and mine is very direct. It is because when I searched on how to code loops in Python, I saw a tutorial on the website W3School.com and immediately coded the problems.</p>
+
+      <p>3. How can AI feedback improve your programming skills and problem-solving process?</p>
+      <p>- AI feedback helps me learn much better ways to write code. It shows me a faster, clearer, and more efficient method that I might not think of. This encourages me to think about different ways to code, solve problems faster, and feel more confident in programming.</p>
+    </section>
+  </main>
+  </body>
+</html>

@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Canonizado's Website(Projects)</title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+<body>
+    <nav>
+      <a href="website.html">Home</a> <span>|</span>
+      <a href="projects.html">Project</a> <span>|</span>
+      <a href="contact.html">Contact</a>
+    </nav>
+  <h2>
+    <nav class="submenu">
+      <a href="project.html">Linear Algebra</a> <span>|</span>
+      <a href="fundamentals.html">Fundamentals of Programming</a>
+    </nav>
+  </h2>
+
+<main>
+  <section>
+  <h3>
+    FINAL PROJECT(3D GRAPHIC TRANSFORMATIONS)
+  </h3>
+  </section>
+  <section>
+    <h4>
+      I. PROJECT OVERVIEW
+    </h4>
+    <p class="paragraphs">This project showcases how 3D geometric transformations can be applied to a music 
+    disc model using Python and VPython. By animating the disc in a virtual environment, it 
+    becomes easier to visualize how objects move and change within three-dimensional 
+    space.</p>
+    <p>Throughout the demonstration, the disc is translated, rotated, and scaled to highlight the 
+    core principles of linear algebra. These transformations help illustrate how mathematical 
+    operations can manipulate objects in 3D, making the concepts more intuitive and 
+    engaging.</p>
+  </section>
+  <section>
+    <h4>
+      II. METHODOLOGY
+    </h4>
+    <p>1. Created a 3D Black Music Disc using Vpython shapes.</p>
+    <p>2. Set up a helper functions for vector and matrix operation.</p>
+    <p>3. Applied translation using a smooth movement.</p>
+    <p>4. Implemented rotation around the x-axis and y-axis using NumPy rotation matrices.</p>
+    <p>5. Applied scaling by adjusting the radius of all disc components to resize the object.</p> 
+    <p>6. Demonstrated transformations in sequence.</p>
+  </section>
+  <section>
+    <h4>
+      III. CODE
+    </h4>
+    <p>The code utilizes VPython for 3D rendering and NumPy for matrix operations.</p>
+    <h5>3D Black Music Disc </h5>
+    <p class="code">from vpython import *</p>
+    <p class="code">import numpy as np</p>
+    <p class="code">import time</p>
+    <p class="code">scene.background = color.gray(0.5)</p>
+    <p class="code">scene.width = 1500</p>
+    <p class="code">scene.height = 700</p>
+    <p class="code">scene.center = vector(0, 0, 0)</p>
+
+    <p class="code">disc = cylinder(</p>
+    <p class="code">    pos = vector(0,0,0),</p>
+    <p class="code">    axis = vector(0,0,0.1),</p>
+    <p class="code">    radius = 2,</p>
+    <p class="code">    color = vector(0,0,0),</p>
+    <p class="code">    shininess = 1,</p>
+    <p class="code">)</p>
+    <p class="code">texture1 = ring(</p>
+    <p class="code">    pos = vector(0,0,0),</p>
+    <p class="code">    color = vector(1,1,1),</p>
+    <p class="code">    radius = 1.7,</p>
+    <p class="code">    thickness = 0.003,</p>
+    <p class="code">    axis = vector(0,0,0.1)</p>
+    <p class="code">)</p>
+    <p class="code">texture2 = ring(</p>
+    <p class="code">    pos = vector(0,0,0.1),</p>
+    <p class="code">    color = vector(1,1,1),</p>
+    <p class="code">    radius = 1.7,</p>
+    <p class="code">    thickness = 0.003,</p>
+    <p class="code">    axis = vector(0,0,0.1)</p>
+    <p class="code">)</p>
+    <p class="code">texture3 = ring(</p>
+    <p class="code">    pos = vector(0,0,0),</p>
+    <p class="code">    color = vector(1,1,1),</p>
+    <p class="code">    radius = 1.8,</p>
+    <p class="code">    thickness = 0.003,</p>
+    <p class="code">    axis = vector(0,0,0.1)</p>
+    <p class="code">)</p>
+    <p class="code">texture4 = ring(</p>
+    <p class="code">    pos = vector(0,0,0.1),</p>
+    <p class="code">    color = vector(1,1,1),</p>
+    <p class="code">    radius = 1.8,</p>
+    <p class="code">    thickness = 0.003,</p>
+    <p class="code">    axis = vector(0,0,0.1)</p>
+    <p class="code">)</p>
+    <p class="code">texture5 = ring(</p>
+    <p class="code">    pos = vector(0,0,0),</p>
+    <p class="code">    color = vector(1,1,1),</p>
+    <p class="code">    radius = 1.6,</p>
+    <p class="code">    thickness = 0.003,</p>
+    <p class="code">    axis = vector(0,0,0.1)</p>
+    <p class="code">)</p>
+    <p class="code">texture6 = ring(</p>
+    <p class="code">    pos = vector(0,0,0.1),</p>
+    <p class="code">    color = vector(1,1,1),</p>
+    <p class="code">    radius = 1.6,</p>
+    <p class="code">    thickness = 0.003,</p>
+    <p class="code">    axis = vector(0,0,0.1)</p>
+    <p class="code">)</p>
+    <p class="code">texture7 = ring(</p>
+    <p class="code">    pos = vector(0,0,0),</p>
+    <p class="code">    color = vector(1,1,1),</p>
+    <p class="code">    radius = 1.5,</p>
+    <p class="code">    thickness = 0.003,</p>
+    <p class="code">    axis = vector(0,0,0.1)</p>
+    <p class="code">)</p>
+    <p class="code">texture8 = ring(</p>
+    <p class="code">    pos = vector(0,0,0.1),</p>
+    <p class="code">    color = vector(1,1,1),</p>
+    <p class="code">    radius = 1.5,</p>
+    <p class="code">    thickness = 0.003,</p>
+    <p class="code">    axis = vector(0,0,0.1)</p>
+    <p class="code">)</p>
+    <p class="code">texture9 = ring(</p>
+    <p class="code">    pos = vector(0,0,0),</p>
+    <p class="code">    color = vector(1,1,1),</p>
+    <p class="code">    radius = 1.4,</p>
+    <p class="code">    thickness = 0.003,</p>
+    <p class="code">    axis = vector(0,0,0.1)</p>
+    <p class="code">)</p>
+    <p class="code">texture10 = ring(</p>
+    <p class="code">    pos = vector(0,0,0.1),</p>
+    <p class="code">    color = vector(1,1,1),</p>
+    <p class="code">    radius = 1.4,</p>
+    <p class="code">    thickness = 0.003,</p>
+    <p class="code">    axis = vector(0,0,0.1)</p>
+    <p class="code">)</p>
+    <p class="code">texture11 = ring(</p>
+    <p class="code">    pos = vector(0,0,0),</p>
+    <p class="code">    color = vector(1,1,1),</p>
+    <p class="code">    radius = 1.3,</p>
+    <p class="code">    thickness = 0.003,</p>
+    <p class="code">    axis = vector(0,0,0.1)</p>
+    <p class="code">)</p>
+    <p class="code">texture12 = ring(</p>
+    <p class="code">    pos = vector(0,0,0.1),</p>
+    <p class="code">    color = vector(1,1,1),</p>
+    <p class="code">    radius = 1.3,</p>
+    <p class="code">    thickness = 0.003,</p>
+    <p class="code">    axis = vector(0,0,0.1)</p>
+    <p class="code">)</p>
+    <p class="code">button = cylinder(</p>
+    <p class="code">    pos = vector(0,0,0.015),</p>
+    <p class="code">    axis = vector(0,0,0.1),</p>
+    <p class="code">    radius = 1,</p>
+    <p class="code">    color = vector(1,1,1),</p>
+    <p class="code">)</p>
+    <p class="code">button2 = cylinder(</p> 
+    <p class="code">    pos = vector(0,0,-0.015),</p>
+    <p class="code">    axis = vector(0,0,0.1),</p>
+    <p class="code">    radius = -1,</p>
+    <p class="code">    color = vector(1,1,1),</p>
+    <p class="code">)</p>
+    <p class="code">point = cylinder(</p>
+    <p class="code">    pos = vector(0,0,0.016),</p>
+    <p class="code">    axis = vector(0,0,0.1),</p>
+    <p class="code">    radius = 0.1,</p>
+    <p class="code">    color=color.gray(0.2)</p>
+    <p class="code">)</p>
+
+    <p class="code">point2 = cylinder(</p>
+    <p class="code">    pos = vector(0,0,-0.016),</p>
+    <p class="code">    axis = vector(0,0,0.1),</p>
+    <p class="code">    radius = -0.1,</p>
+    <p class="code">    color=color.gray(0.2)</p>
+    <p class="code">)</p>
+
+    <p class="code">myshapes_1 = [disc, texture1, texture2, texture3, texture4, texture5,</p>
+    <p class="code">texture6,</p>
+    <p class="code">          texture7, texture8, texture9, texture10, texture11, texture12,</p>
+    <p class="code">          button, button2, point, point2]</p>
+
+    <p class="code"># === Helper functions ===</p>
+    <p class="code">def to_np(v):</p>
+    <p class="code">    """Convert VPython vector → NumPy array."""</p>
+    <p class="code">    if isinstance(v, vector):</p>
+    <p class="code">        return np.array([v.x, v.y, v.z])</p>
+    <p class="code">    elif isinstance(v, (list, tuple, np.ndarray)):</p>
+    <p class="code">        return np.array(v)</p>
+    <p class="code">    else:</p>
+    <p class="code">        raise TypeError("Unsupported type for to_np()")</p>
+
+    <p class="code">def to_vpy(v):</p>
+    <p class="code">    """Convert NumPy array → VPython vector."""</p>
+    <p class="code">    return vector(float(v[0]), float(v[1]), float(v[2]))</p>
+
+    <p class="code">def get_ry(theta):</p>
+    <p class="code">    """Rotation matrix around Y-axis."""</p>
+    <p class="code">    return np.array([</p>
+    <p class="code">        [np.cos(theta), 0, np.sin(theta)],</p>
+    <p class="code">        [0,  1, 0],</p>
+    <p class="code">        [-np.sin(theta), 0, np.cos(theta)]</p>
+    <p class="code">    ])</p>
+
+    <p class="code">def get_rx(theta):</p>
+    <p class="code">    """Rotation matrix around X-axis"""</p>
+    <p class="code">    return np.array([</p>
+    <p class="code">        [1, 0, 0],</p>
+    <p class="code">        [0, np.cos(theta), -np.sin(theta)],</p>
+    <p class="code">        [0, np.sin(theta), np.cos(theta)]</p>
+    <p class="code">    ])</p>
+
+    <p class="code"># === TRANSFORMATIONS ===</p>
+    <p class="code"># Translation</p>
+    <p class="code">def smooth_move(target_pos, steps=100, wait=1):</p>
+    <p class="code">    """Translate all shapes smoothly together."""</p>
+    <p class="code">    target_np = to_np(target_pos)</p>
+    <p class="code">    start_positions = [to_np(s.pos) for s in myshapes_1]</p>
+    <p class="code">    reference_start = start_positions[0]</p>
+    <p class="code">    move_vector = target_np - reference_start</p>
+    <p class="code">    for t in np.linspace(0, 1, steps):</p>
+    <p class="code">        rate(60)</p>
+    <p class="code">        for s, start in zip(myshapes_1, start_positions):</p>
+    <p class="code">            new_v = start + move_vector * t</p>
+    <p class="code">            s.pos = to_vpy(new_v)</p>
+
+    <p class="code"># Scaling</p>
+    <p class="code">def smooth_scale_all(scale_factor, steps=60):</p>
+    <p class="code">    for t in np.linspace(0, 1, steps):</p>
+    <p class="code">        rate(60)</p>
+    <p class="code">        for s in myshapes_1:</p>
+    <p class="code">            factor = 1 + (scale_factor -1)/steps</p>
+    <p class="code">            if hasattr(s, 'radius'):</p>
+    <p class="code">                s.radius *= factor</p>
+
+    <p class="code"># Rotation</p>
+    <p class="code">def smooth_rotate(theta, steps=100, wait=1):</p>
+    <p class="code">    """Rotate all shapes smoothly around X-axis."""</p>
+    <p class="code">    Rx = get_rx(np.radians(theta / steps))</p>
+    <p class="code">    for _ in range(steps):</p>
+    <p class="code">        rate(60)</p>
+    <p class="code">        for s in myshapes_1:</p>
+    <p class="code">            v = to_np(s.pos)</p>
+    <p class="code">            v = Rx @ v</p>
+    <p class="code">            s.pos = to_vpy(v)</p>
+    <p class="code">            s.axis = to_vpy(Rx @ to_np(s.axis))</p>
+
+    <p class="code">def smooth_rotate_y(theta, steps=100, wait=1):</p>
+    <p class="code">    """Rotate all shapes smoothly around Y-axis."""</p>
+    <p class="code">    Ry = get_ry(np.radians(theta / steps))</p>
+    <p class="code">    for _ in range(steps):</p>
+    <p class="code">        rate(60)</p>
+    <p class="code">        for s in myshapes_1:</p>
+    <p class="code">            v = to_np(s.pos)</p>
+    <p class="code">            v = Ry @ v</p>
+    <p class="code">            s.pos = to_vpy(v)</p>
+    <p class="code">            s.axis = to_vpy(Ry @ to_np(s.axis))</p>
+
+    <p class="code"># TRANSLATION in X axis</p>
+    <p class="code">time.sleep(3)</p>
+    <p class="code">smooth_move(np.array([1.5, 0, 0]))</p>
+    <p class="code">smooth_move(np.array([-1.5, 0, 0]))</p>
+    <p class="code">smooth_move(np.array([0, 0, 0]))  # back to origin</p>
+    <p class="code">time.sleep(2)</p>
+
+    <p class="code"># TRANSLATION in Y axis</p>
+    <p class="code">smooth_move(np.array([0, 0.5, 0]))</p>
+    <p class="code">smooth_move(np.array([0, -0.5, 0]))</p>
+    <p class="code">smooth_move(np.array([0, 0, 0]))  # back to origin</p>
+    <p class="code">time.sleep(2)</p>
+
+    <p class="code"># SCALING</p>
+    <p class="code">smooth_scale_all(0.5)</p>
+    <p class="code">smooth_scale_all(1.5)</p>
+    <p class="code">smooth_scale_all(1.0)</p>
+    <p class="code">time.sleep(2)</p>
+
+    <p class="code"># Rotate 90 X</p>
+    <p class="code">smooth_rotate(90)</p>
+    <p class="code">smooth_rotate(90)</p>
+    <p class="code">smooth_rotate(90)</p>
+    <p class="code">smooth_rotate(90)</p>
+    <p class="code">time.sleep(2)</p>
+
+    <p class="code"># Rotate 90 Y</p>
+    <p class="code">smooth_rotate_y(90)</p>
+    <p class="code">smooth_rotate_y(90)</p>
+    <p class="code">smooth_rotate_y(90)</p>
+    <p class="code">smooth_rotate_y(90)</p>
+    <p class="code">time.sleep(20)</p>
+	</section>
+	<section>
+		<h4>
+			IV. OUTPUT AND RESULTS
+		</h4>
+		<p>A video of running the 3D graphic transformations code.</p>
+		<video controls autoplay muted loop>
+  		<source src="Videos/out.mp4" type="video/mp4"> 
+		</video>
+</section>
+		<p>The video demonstration of the 3D graphic transformations applied to the music disc model can be viewed in YouTube:
+  <a href="https://www.youtube.com/watch?v=e6nvl9fZfeE" target="_blank">Click here</a>
+</p>
+
+	</section>
+	<section>
+		<h4>
+			V. CONCLUSION
+		</h4>
+		<p>In this project, we learned how to create 3D shapes using the Vpython library, and how 
+to animate it through smooth transformation. By applying translation, rotating, and 
+scaling, we practiced how to control the position, size, and the orientation of the object 
+in 3D space. Applying the linear transformations to the object’s position vector and 
+using the matrix multiplication with rotation matrices for X and Y axes or scaling factors 
+for size adjustments. This project combines programming, 3D programming, and math 
+giving practical experience with linear algebra computations. Overall, it help us 
+understand how mathematical concepts are applied in real-world animation and motion. </p>
+	</section>
+</main>
+</body>
+</html>
